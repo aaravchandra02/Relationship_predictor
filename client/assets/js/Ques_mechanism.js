@@ -6,6 +6,7 @@ responses = []; // List to store the user resposne for each question.
 for (i1 = 0; i1 < 54; i1++) {
     responses.push(-1);
 }
+var answer;
 
 
 // Helper fn to caluculate progress bar percentage.
@@ -26,6 +27,11 @@ function calculate_percentage(c) {
 
 
 // }
+
+function getResult(){
+	document.getElementById("result_div").innerHTML = `Your future is ${localStorage.getItem("result")}`;
+	console.log(localStorage.getItem("result"))
+}
 
 function next_question() {
     console.log(`current count: ${count}`) // Checking current count value
@@ -58,15 +64,20 @@ function next_question() {
            }).fail(function () {
                console.log("Error")
            });
-***/
-            $.post("http://127.0.0.1:5000/json-example", { "usr_data": responses }
+***/		
+			//var url = "http://127.0.0.1:5000/json-example";
+            var url = "/api/json-example";
+			$.post(url, { "usr_data": responses }
                 , function (data, status) {
-                    var answer = data.p
-                    // alert("the returned value is" + answer)
-                    console.log(data.p);
+                    answer = data.estimated_prediction;
+                    //alert("the returned value is" + answer);
+					localStorage.setItem("result", answer);
+					console.log(localStorage.getItem("result"));
+                    console.log(data.estimated_prediction);
                     console.log(status);
                 });
-            document.getElementById("my_form").submit(responses);
+			//document.getElementById("my_form").submit();
+			
         }
     }
 
