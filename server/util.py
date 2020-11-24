@@ -15,19 +15,19 @@ def load_saved_models():
 
 
 def get_prediction(arr):
-    arr = np.asarray(test_list)
+    arr = np.asarray(arr)
     print(arr.shape)
     arr = np.reshape(arr, newshape=(1, 54))
     print(arr.shape)
-    return __model.predict(arr)
+    return __model.predict(arr)[0]
 
 
 if __name__ == "__main__":
     load_saved_models()
-    test_list = [1, 2, 2, 3, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -
-                 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-    test_arr = np.asarray(test_list)
-    print(test_arr.shape)
-    test_arr = np.reshape(test_arr, newshape=(1, 54))
-    print(test_arr.shape)
-    print(get_prediction(test_arr))
+    # test_list = [1, 2, 2, 3, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -
+    #  1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+    # test_arr = np.asarray(test_list)
+    # print(test_arr.shape)
+    # test_arr = np.reshape(test_arr, newshape=(1, 54))
+    # print(test_arr.shape)
+    # print(get_prediction(test_arr))

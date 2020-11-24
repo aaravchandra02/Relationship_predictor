@@ -25,7 +25,7 @@ def formexample():
         {"estimated_prediction": answer}
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
-    print(f"answer = {answer}\n\nresponse with header = {response}")
+    print(f"answer = {answer}\n\nresponse with header = {response}\n\n")
     return response
 
 
