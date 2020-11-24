@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/form-example', methods=['POST', 'GET'])
 def formexample():
-    print(f"\n{request.data}\n\n\n{request.args}\n\n\n{request.form}\n\n\n{request.files}\n\n\n{request.values}\n\n\n{request.get_json()}\n\n\n")
+    print({request.form.has_key()})
     return "hello"
 
 

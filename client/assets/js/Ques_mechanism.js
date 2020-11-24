@@ -46,10 +46,27 @@ function next_question() {
         // if (responses.length < count) {
         //     responses.splice(count, 1, Number("-1"));
         // }
-        if (count == 54) {
+        // count == 54
+        if (count == 2) {
             document.getElementById("QPara").innerHTML = `${ques_array[count]}`;
             //submit the form
-            document.getElementById("my_form").submit(responses);
+            console.log(`final data = ${responses} having type of ${typeof (responses)}`)
+            var fi = { "name": "Responses", "value": responses };
+            console.log(fi);
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:5000/form-example",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                    console.log("Success");
+                },
+                error: function (result) {
+                    console.log(result);
+                }
+            });
+            // document.getElementById("my_form").submit(responses);
         }
     }
 
