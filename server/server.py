@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import util
 
 app = Flask(__name__)
-global usr_data
+
 
 # This is how we expose HTTP endpoint:
 
