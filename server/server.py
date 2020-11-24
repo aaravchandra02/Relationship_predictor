@@ -16,7 +16,7 @@ def hello():
 def formexample():
     # request.headers.add('Access-Control-Allow-Origin', '*')
     usr_data = request.form.getlist("usr_data[]")
-    usr_data = list(map(int, usr_data))
+    usr_data = list(map(int, usr_data))  # values converted to int type.
     print(usr_data, type(usr_data[1]))
     # print(request.form.getlist("usr_data[]"))
     answer = util.get_prediction(usr_data)
