@@ -2,33 +2,46 @@ from flask import Flask, request, jsonify, render_template
 import util
 
 app = Flask(__name__)
-
+global usr_data
 
 # This is how we expose HTTP endpoint:
+
+
 @app.route("/hello")
 def hello():
     return "Hi This is my first routing"
 
 
-@app.route('/form-example', methods=['POST', 'GET'])
+@app.route('/json-example', methods=['POST', 'GET'])
 def formexample():
-    print({request.form.has_key()})
-    return "hello"
-
-
-@app.route("/relationship", methods=["POST"])
-def predict_relationship_future():
-    # This below needs to store the response that has come from POST of relationship.html
-    resp_arr = request.form["location"]
-
-    answer = util.get_prediction(resp_arr)
-
+    # request.headers.add('Access-Control-Allow-Origin', '*')
+    usr_data = request.form.getlist("usr_data[]")
+    usr_data = list(map(int, usr_data))
+    print(usr_data, type(usr_data[1]))
+    # print(request.form.getlist("usr_data[]"))
+    answer = util.get_prediction(usr_data)
+    print(answer)
     response = jsonify(
         {"estimated_prediction": answer}
     )
-    response.headers.add("Access-Control-Allow-Origin", "*")
-
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    print(f"answer = {answer}\n\nresponse with header = {response}")
     return response
+
+
+# @app.route("/relationship", methods=["POST"])
+# def predict_relationship_future():
+#     # This below needs to store the response that has come from POST of relationship.html
+#     resp_arr = request.form["location"]
+
+#     # answer = util.get_prediction(usr_data)
+
+#     response = jsonify(
+#         {"estimated_prediction": answer}
+#     )
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+
+#     return response
 
 
 if __name__ == "__main__":

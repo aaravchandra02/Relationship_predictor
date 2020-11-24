@@ -15,6 +15,10 @@ def load_saved_models():
 
 
 def get_prediction(arr):
+    arr = np.asarray(test_list)
+    print(arr.shape)
+    arr = np.reshape(arr, newshape=(1, 54))
+    print(arr.shape)
     return __model.predict(arr)
 
 

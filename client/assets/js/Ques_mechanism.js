@@ -47,26 +47,26 @@ function next_question() {
         //     responses.splice(count, 1, Number("-1"));
         // }
         // count == 54
-        if (count == 2) {
+        if (count == 5) {
             document.getElementById("QPara").innerHTML = `${ques_array[count]}`;
             //submit the form
             console.log(`final data = ${responses} having type of ${typeof (responses)}`)
             var fi = { "name": "Responses", "value": responses };
             console.log(fi);
-            $.ajax({
-                type: 'POST',
-                url: "http://127.0.0.1:5000/form-example",
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: function (result) {
-                    console.log("Success");
-                },
-                error: function (result) {
-                    console.log(result);
-                }
-            });
-            // document.getElementById("my_form").submit(responses);
+            /***$.post("http://127.0.0.1:5000/json-example", { "usr_data": responses }).done(function (result) {
+               console.log(`Success - ${result}`);
+           }).fail(function () {
+               console.log("Error")
+           });
+***/
+            $.post("http://127.0.0.1:5000/json-example", { "usr_data": responses }
+                , function (data, status) {
+                    var answer = data.p
+                    // alert("the returned value is" + answer)
+                    console.log(data.p);
+                    console.log(status);
+                });
+            document.getElementById("my_form").submit(responses);
         }
     }
 
