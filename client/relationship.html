@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cloud Project</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/-Login-form-Page-BS4-.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
+    <link rel="stylesheet" href="assets/css/Landing-Page---Parallax-Background---Logo-Heading-ButtonGIF.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Modern-Contact-Form.css">
+    <link rel="stylesheet" href="assets/css/Navbar---Logo-Middle---Phone-Logo-Middle.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top" style="text-align: center;margin: 20px 0 0 0;">
+            <div class="container-fluid"><button data-toggle="collapse" data-target="#navcol-1"
+                    class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item navigationitemsleft"><a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item navigationitemsleft"><a class="nav-link active"
+                                href="Instructions.html">Prediction</a></li>
+                    </ul>
+                </div><img data-aos="fade" data-aos-duration="3000" id="logoimage"
+                    src="assets/img/Drills4You%20logo%20fini.png">
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item navigationitemsright"><a class="nav-link active" href="contact.html">Contact
+                                Us</a></li>
+                        <li class="nav-item navigationitemsright"><a class="nav-link active" href="about.html">About
+                                Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container"><span>Your Progress Bar:</span>
+        <div class="progress" id="progressBar" style="margin-bottom: 20px;margin-top: 10px;">
+            <div class="progress-bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress_value"
+                style="width: 0%;">50%</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <!-- if action is added to <form then it takes you to a new page.> action="results.html" -->
+            <form id="my_form" action="http://127.0.0.1:5000/form-example" method="post" enctype="text/plain">
+                <div style="padding-bottom: 10px;height: auto;width: auto;">
+                    <div style="width: auto;height: auto;">
+                        <p id="QPara"
+                            style="height: auto;background: #e9ecef;text-align: center;font-style: normal;font-weight: bold;">
+                            Given below are the set of responses on a scale form 0 to 4. </br>Currently they are
+                            disabled and
+                            will
+                            be enabled once the quiz starts.</br><strong>Please select only one
+                                response for each
+                                question and
+                                answer every question.</strong><em> </br>Note: Once you press <strong>Next</strong>, you
+                                cannot navigate
+                                back
+                                to the previous questions</em></p>
+                    </div>
+                </div>
+                <div class="form-check disabled align-items-center"><input class="form-check-input" type="radio"
+                        id="formCheck-1" name="tigger" value="0" disabled><label class="form-check-label"
+                        for="formCheck-1"><strong>0 </strong>-&nbsp; <em>Strongly
+                            Disagree</em></label></div>
+                <div class="form-check disabled"><input class="form-check-input" type="radio" id="formCheck-5"
+                        name="tigger" value="1" disabled><label class="form-check-label"
+                        for="formCheck-1"><strong>1&nbsp;</strong>-&nbsp; <em>Disagree</em></label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4" name="tigger"
+                        value="2" disabled><label class="form-check-label"
+                        for="formCheck-1"><strong>2&nbsp;</strong>-&nbsp;
+                        <em>Neutral</em></label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3" name="tigger"
+                        value="3" disabled><label class="form-check-label"
+                        for="formCheck-1"><strong>3&nbsp;</strong>-&nbsp;
+                        <em>Agree</em></label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="tigger"
+                        value="4" disabled><label class="form-check-label"
+                        for="formCheck-1"><strong>4&nbsp;</strong>-&nbsp;
+                        <em>Strongly Agree</em></label></div>
+                <div></div>
+            </form>
+        </div>
+    </div>
+    <div class="container" style="height: 38px;">
+        <div style="text-align: center;padding-bottom: 20px;"><a href="Instructions.html"><button
+                    class="btn btn-primary" data-bs-hover-animate="pulse" id="previous_button" type="button"
+                    style="text-align: left;margin-right: 10px;"><img
+                        style="width: 20px;height: 20px;transform: rotate(90deg) translateX(-2px);"
+                        src="assets/img/arrowwhite.gif">&nbsp;Previous<span
+                        style="text-align: left;"></span></button></a>
+            <button class="btn btn-primary" data-bs-hover-animate="pulse" id="next_button" type="button"
+                onclick="next_question()" style="text-align: right;margin-left: 10px;">Next&nbsp;<img
+                    style="width: 20px;height: 20px;transform: rotate(270deg) translateX(2px);"
+                    src="assets/img/arrowwhite.gif"><span style="text-align: right;"></span></button>
+        </div>
+    </div>
+    <footer class="page-footer" style="padding-top: 20px;">
+        <div class="container" style="padding-right: 10px;padding-left: 10px;">
+            <div class="social-icons" style="text-align: center;"><a href="https://github.com/aaravchandra02"
+                    style="opacity: 3;background-color: rgb(255,255,255);"><img data-toggle="tooltip" data-bs-tooltip=""
+                        src="assets/img/GitHub-Mark-120px-plus.png" style="width: 36px;padding: 5px;"
+                        title="Github"></a><a href="https://www.linkedin.com/in/aarav-chandra/"
+                    style="opacity: 3;background-color: rgb(255,255,255);"><img data-toggle="tooltip" data-bs-tooltip=""
+                        src="assets/img/f_logo_RGB-Blue_1024.png" style="width: 36px;padding: 5px;"
+                        title="Facebook"></a><a href="https://twitter.com/aarav_chandra"
+                    style="opacity: 3;background-color: rgb(255,255,255);"><img data-toggle="tooltip" data-bs-tooltip=""
+                        src="assets/img/Twitter_Logo_Blue.png" style="width: 36px;padding: 5px;" title="Twitter"></a>
+            </div>
+        </div>
+        <div class="container">
+            <p style="text-align: center;">Copyright © 2020 Aarav Chandra</p>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/smart-forms.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Ques_mechanism.js"></script>
+</body>
+
+</html>

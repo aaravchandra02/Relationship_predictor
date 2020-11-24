@@ -1,0 +1,1 @@
+this folder contains the flask server that will route our webserver requests that are sent from our nginx webserver.

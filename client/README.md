@@ -1,0 +1,1 @@
+This folder contains the UI part of the whole application
