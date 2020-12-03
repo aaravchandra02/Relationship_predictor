@@ -66,8 +66,10 @@ function next_question() {
            });
 ***/		
 			//var url = "http://127.0.0.1:5000/json-example";
-            var url = "/api/json-example";
-			$.post(url, { "usr_data": responses }
+            //var url = "/api/json-example";
+			
+			var url = "https://utmq2ktr12.execute-api.us-east-1.amazonaws.com/Dev/getprediction"
+			/***$.ajax(url, { "usr_data": responses }
                 , function (data, status) {
                     answer = data.estimated_prediction;
                     //alert("the returned value is" + answer);
@@ -75,9 +77,27 @@ function next_question() {
 					console.log(localStorage.getItem("result"));
                     console.log(data.estimated_prediction);
                     console.log(status);
+                });***/
+			$.ajax({
+                    url: "https://utmq2ktr12.execute-api.us-east-1.amazonaws.com/Dev/getprediction?data="+responses,
+                    cache: false,
+                    type: 'GET',                   
+                    data: { "usr_data": responses },
+                    success: function (data) { 
+						//answer = data["results"]
+                        console.log(data);
+						console.log(typeof data)
+						answer = Number(data);
+                    }
                 });
 			//document.getElementById("my_form").submit();
-			
+			console.log(typeof answer)
+			if(Number(answer) == 0){
+				window.open("najina.html","_self");
+			}else{
+				window.open("badhiya.html","_self");
+			}
+			//}
         }
     }
 
